@@ -34,7 +34,7 @@ app.use(compression());
 app.use(logger("combined"));
 
 const limiter = rateLimit({
-    max: process.env.REQUEST_LIMIT, // max requests
+    max: process.env.REQUEST_LIMIT || 10000, // max requests
     windowMs: 60 * 60 * 1000, // Wait 1 Hour Till Next Request
     message: "Suspected Request Activity , You have been temporarily blocked, Please Try Again in 60-90 minutes",
 });
